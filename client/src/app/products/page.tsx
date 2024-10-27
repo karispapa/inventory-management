@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import Header from "../(components)/Header";
 import Rating from "../(components)/Rating";
 import CreateProductModal from "./CreateProductModal";
+import Image from "next/image";
 
 type ProductFormData = {
   name: string;
@@ -79,7 +80,18 @@ function Products() {
               key={product.productId}
             >
               <div className="flex flex-col items-center">
-                <p className="">img</p>
+                <Image
+                  src={`https://s3-inventorymanagementsam.s3.eu-west-2.amazonaws.com/product${
+                    Math.floor(Math.random() * 3) + 1
+                  }.png`}
+                  // src={`https://s3-inventorymanagementsam.s3.eu-west-2.amazonaws.com/product${
+                  //   index + 1
+                  // }.png`}
+                  alt={product.name}
+                  width={150}
+                  height={150}
+                  className="mb-3 rounded-2xl w-36 h-36"
+                />
                 <h3 className="text-lg text-gray-900 font-semibold">
                   {product.name}{" "}
                 </h3>
